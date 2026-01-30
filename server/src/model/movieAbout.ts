@@ -22,7 +22,7 @@ const movieAboutSchema = new mongoose.Schema({
         required: true
     },
     posterUrl:{
-        type: Number,
+        type: String,
         required: true
     },
     owner:{
