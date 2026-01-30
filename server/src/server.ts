@@ -8,6 +8,7 @@ import mongoose from 'mongoose';
 import { errorHandler } from './middleware/errorHandler.js';
 import auth from './routes/auth.js';
 import upload from './routes/uploadMovie.js'
+import chat from './routes/chatbox.js'
 
 const app = express();
 app.use(express.json());
@@ -18,6 +19,7 @@ mongoose.connect(env.DB_URL).then(() => console.log('Connected to DATABASE'));
 app.use('/api', welcome);
 app.use('/api', auth);
 app.use('/api',upload)
+app.use('/api',chat)
 
 const port = env.PORT;
 app.use(errorHandler);

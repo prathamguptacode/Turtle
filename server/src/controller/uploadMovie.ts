@@ -11,6 +11,8 @@ import moviePoster from '../model/moviePoster.js';
 import fs from 'fs';
 import movie from '../model/movie.js';
 import movieTrailer from '../model/movieTrailer.js';
+import { run } from '@openai/agents';
+import autoTaggingAgent from '../algorithms/agents/autoTagging.js';
 
 export async function uploadMovieAbout(req: Request, res: Response) {
     const userId = req.user;
@@ -32,6 +34,11 @@ export async function uploadMovieAbout(req: Request, res: Response) {
             .status(500)
             .json({ message: 'Something went wrong in the model' });
     }
+    const result = await run(
+        autoTaggingAgent,
+        `NAME: ${zValidation.data.name}: ` + zValidation.data.serverDescription,
+    );
+    const tags=result.finalOutput?.tags;
     const newMovieAbout = new movieAbout({
         name: zValidation.data.name,
         description: zValidation.data.describe,
@@ -41,6 +48,7 @@ export async function uploadMovieAbout(req: Request, res: Response) {
         price: zValidation.data.price,
         owner: userId,
         embedding,
+        tags: tags
     });
     await newMovieAbout.save();
     await user.updateOne(

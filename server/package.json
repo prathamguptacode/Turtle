@@ -11,6 +11,7 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "@openai/agents": "^0.4.4",
     "@t3-oss/env-core": "^0.13.10",
     "argon2": "^0.44.0",
     "bcrypt": "^6.0.0",
