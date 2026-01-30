@@ -26,7 +26,7 @@ export const loginSchema = z.object({
     password: z.string(),
 });
 
-export const movieAbout = z.object({
+export const movieAboutSchema = z.object({
   name: z.string(),
   describe: z.string(),
   serverDescription: z.string(),
