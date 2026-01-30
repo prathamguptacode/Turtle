@@ -11,6 +11,9 @@ export const env = createEnv({
         TEMPUSERTOKEN: z.string(),
         REFRESHTOKEN: z.string(),
         EMAILKEY: z.string(),
+        OPENAI_API_KEY: z.string(),
+        MOVIEPOSTERTOKEN: z.string(),
+        MOVIEVIDEOTOKEN: z.string(),
     },
     runtimeEnv: process.env,
 });

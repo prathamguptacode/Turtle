@@ -15,14 +15,9 @@ const movieAboutSchema = new mongoose.Schema({
     },
     tags:{
         type: [String],
-        required: true
     },
     price:{
         type: Number,
-        required: true
-    },
-    posterUrl:{
-        type: String,
         required: true
     },
     owner:{

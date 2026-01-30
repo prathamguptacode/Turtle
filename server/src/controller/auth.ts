@@ -118,7 +118,7 @@ export async function login(req: Request, res: Response) {
         zValidation.data.password,
     );
     if (passCheck) {
-        const refreshToken = jwt.sign({ userId: myUser.id }, env.REFRESHTOKEN, {
+        const refreshToken = jwt.sign({ user: myUser.id }, env.REFRESHTOKEN, {
             expiresIn: '7d',
             issuer: 'Turtle Backend',
             audience: 'Turtle Cleints',
