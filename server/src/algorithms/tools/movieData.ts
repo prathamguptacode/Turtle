@@ -4,7 +4,7 @@ import OpenAI from 'openai';
 import movieAbout from '../../model/movieAbout.js';
 
 const movieData = tool({
-    name: 'Movie Data',
+    name: 'Movie_Data',
     description:
         'Gets the movies data in database by giving the query which goes through vector embedding for giving movies data',
     parameters: z.object({
