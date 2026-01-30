@@ -1,4 +1,5 @@
 import { email, z } from 'zod';
+import { describe } from 'zod/v4/core';
 
 export const signupSchema = z.object({
     name: z
@@ -24,3 +25,10 @@ export const loginSchema = z.object({
     email: z.email().trim(),
     password: z.string(),
 });
+
+export const movieAboutSchema = z.object({
+  name: z.string(),
+  describe: z.string(),
+  serverDescription: z.string(),
+  price: z.number(),
+})
