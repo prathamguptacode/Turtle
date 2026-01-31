@@ -26,8 +26,8 @@ const movieData = tool({
                     queryVector: embeddingData.data[0]?.embedding,
                     path: 'embedding',
                     numCandidates: 100,
-                    limit: 4,
-                    index: 'turtle_movies_dev'
+                    limit: 5,
+                    index: 'movie_abouts'
                 }
             },
             {

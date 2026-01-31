@@ -9,6 +9,7 @@ import { errorHandler } from './middleware/errorHandler.js';
 import auth from './routes/auth.js';
 import upload from './routes/uploadMovie.js'
 import chat from './routes/chatbox.js'
+import algo from './routes/algo.js'
 
 const app = express();
 app.use(express.json());
@@ -20,6 +21,7 @@ app.use('/api', welcome);
 app.use('/api', auth);
 app.use('/api',upload)
 app.use('/api',chat)
+app.use('/api',algo)
 
 const port = env.PORT;
 app.use(errorHandler);
