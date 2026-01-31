@@ -219,6 +219,7 @@ Fast.
 Accurate.
 Personalized.
 Minimal.
+IMPORTANT - USE MOVIEDATA TOOL (A EMBEDDING ALGO) WISELY CAUSE IT IS EXPENSIVE TO CALL SO USE PROPER SHORT KEYWORD QUERY
 `,
     inputGuardrails: [turtleGuard],
     tools: [movieData, userData],

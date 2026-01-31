@@ -17,15 +17,19 @@ const userData = tool({
             .populate([
                 {
                     path: 'watchedMovies',
-                    options: { limit: 7 },
+                    options: { limit: 5 },
+                    select: 'name description serverDescription tags',
                 },
                 {
                     path: 'likedMoviesAlgo',
                 },
                 {
                     path: 'postedMovies',
+                    select: 'name description serverDescription tags',
+                    options: { limit: 5 },
                 },
             ]);
+
         return userData;
     },
 });

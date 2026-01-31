@@ -1,5 +1,4 @@
-import { email, z } from 'zod';
-import { describe } from 'zod/v4/core';
+import { z } from 'zod';
 
 export const signupSchema = z.object({
     name: z
