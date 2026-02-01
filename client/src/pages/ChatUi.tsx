@@ -121,7 +121,7 @@ const ChatUi = () => {
             );
 
             setIsLoading(false);
-        } catch (error: any) {
+        } catch (error: axioserr) {
             setIsLoading(false);
 
             const errorMessage: Message = {

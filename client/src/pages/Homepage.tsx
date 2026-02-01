@@ -132,7 +132,9 @@ function Homepage() {
                 if (setUser) {
                     setUser(1);
                 }
-            } catch {}
+            } catch {
+                console.log('login')
+            }
         })();
     }, []);
 
