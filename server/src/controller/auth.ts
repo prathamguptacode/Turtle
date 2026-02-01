@@ -83,7 +83,7 @@ export async function verify(req: Request, res: Response) {
             password: myTempUser.password,
         });
         await myUser.save();
-        const refreshToken = jwt.sign({ userId: myUser.id }, env.REFRESHTOKEN, {
+        const refreshToken = jwt.sign({ user: myUser.id }, env.REFRESHTOKEN, {
             expiresIn: '7d',
             issuer: 'Turtle Backend',
             audience: 'Turtle Cleints',
@@ -125,6 +125,7 @@ export async function login(req: Request, res: Response) {
         });
         res.cookie('refreshToken', refreshToken, {
             maxAge: 604800 * 1000,
+            httpOnly: true,
         });
         return res.json({
             message: 'user login successfully',

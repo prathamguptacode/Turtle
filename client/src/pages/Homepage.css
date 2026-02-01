@@ -1,0 +1,178 @@
+.navbar {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 12px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--color-bg-nav);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+.turtle {
+    color: #10b981;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.5px;
+    padding-right: 8px;
+}
+.navElements {
+    all: unset;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+}
+.navElements:hover {
+    color: var(--color-text-muted);
+}
+.searchBox {
+    flex-shrink: 0;
+    margin-left: auto;
+    cursor: pointer;
+    transition: background-color 0.12s ease-out;
+    padding: 6px;
+    border-radius: 24px;
+}
+.searchBox:hover {
+    background-color: var(--color-btn-gray);
+}
+.user {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    cursor: default;
+}
+.uploadBtn {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 12px;
+    border-radius: 8px;
+    background-color: var(--color-primary);
+    font-weight: 500;
+    transition: background-color 0.12s ease-in-out;
+}
+.uploadBtn:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.heroMovie {
+    position: relative;
+}
+.posterImg {
+    margin: auto;
+    width: calc(100%);
+    height: 540px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.contentHero {
+    position: absolute;
+    z-index: 2;
+    padding: 28px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    bottom: 24px;
+
+    max-width: 1400px;
+    margin: auto;
+}
+
+.titleHero {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.featuresHero {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.descriptionHero {
+    max-width: 40%;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.playHero {
+    all: unset;
+    padding: 12px 32px;
+    background: hsl(0, 0%, 97%);
+    border-radius: 4px;
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.playHero:hover {
+    background-color: var(--color-primary);
+}
+
+.infoHero {
+    padding: 12px 24px;
+    background: rgba(109, 109, 110, 0.7);
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 16px;
+
+    transition: background-color 0.3s ease;
+}
+
+.infoHero:hover {
+    background-color: rgba(109, 109, 110, 0.4);
+}
+
+.btnboxHero {
+    display: flex;
+    gap: 16px;
+}
+
+.detailsHero {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 14px;
+    color: var(--color-text-muted);
+}
+
+.cardTitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+.cards {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow-y: auto;
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.cardRow{
+    padding: 20px 0;
+}
