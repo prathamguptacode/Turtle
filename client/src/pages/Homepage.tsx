@@ -22,18 +22,17 @@ function Homepage() {
     const [horror, setHorror] = useState([]);
     const [fiction, setFiction] = useState([]);
 
-    
-
-    const navigate=useNavigate();
-    function handleLogin(){
-        navigate('/auth')
+    const navigate = useNavigate();
+    function handleLogin() {
+        navigate('/auth');
     }
-    function handleAi(){
-        navigate('/chat')
+    function handleAi() {
+        navigate('/chat');
     }
 
     const context = useContext(UserContext);
     const user = context?.user;
+    const setUser = context?.setUser;
 
     useEffect(() => {
         (async () => {
@@ -126,6 +125,14 @@ function Homepage() {
                     position: 'top-center',
                 });
             }
+        })();
+        (async () => {
+            try {
+                await api.get('check');
+                if (setUser) {
+                    setUser(1);
+                }
+            } catch {}
         })();
     }, []);
 
@@ -340,15 +347,15 @@ function Homepage() {
                     </div>
                 </div>
 
-                <div className="cardRow">
+                {/* <div className="cardRow">
                     <div className="cardTitle" id="Recommendation">
                         Top 10 for You
                     </div>
-                </div>
+                </div> */}
 
-                <div className="cardRow">
+                {/* <div className="cardRow">
                     <div className="cardTitle">You may like</div>
-                </div>
+                </div> */}
 
                 <div className="cardRow">
                     <div className="cardTitle" id="Comedy">
