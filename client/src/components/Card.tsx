@@ -1,4 +1,3 @@
-import React from 'react';
 import './Card.css';
 
 type cardsT = {
@@ -10,9 +9,9 @@ type cardsT = {
 
 function Card({ name, price, description, id }: cardsT) {
     return (
-        <div>
+        <div className={id}>
             <div className="movie-card">
-                {/* <img src={imageUrl} alt="movie poster" className="cardPoster" /> */}
+                {/* <img src={imageUrl} alt="movie poster" className="cardPoster" />  */}
                 <div className="card-info">
                     <div className="card-title">{name}</div>
 
