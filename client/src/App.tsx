@@ -4,7 +4,7 @@ import Homepage from './pages/Homepage';
 import AuthPage from './pages/Auth';
 import ChatUi from './pages/ChatUi';
 import { useState } from 'react';
-import { UserContext } from './context/userContext';
+import { UserContext } from './context/UserContext';
 import ErrorPage from './pages/Errorpage';
 
 function App() {

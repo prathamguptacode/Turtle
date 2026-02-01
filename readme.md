@@ -156,11 +156,9 @@ Returns instant recommendations from our own Database.
 
 ## 📸 Screenshots
 
-<!-- <p align="center">
-  <img src="screenshots/home.png" width="800"/>
-  <img src="screenshots/player.png" width="800"/>
-  <img src="screenshots/upload.png" width="800"/>
-</p> -->
+![App Screenshot](./sample/screen0.png)
+![App Screenshot](./sample/screen1.png)
+![App Screenshot](./sample/screen2.png)
 
 ---
 

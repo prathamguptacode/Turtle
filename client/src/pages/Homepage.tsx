@@ -9,7 +9,7 @@ import Card from '../components/Card';
 import api from '../api/axios';
 import { toast, Toaster } from 'sonner';
 import { MdLogin } from 'react-icons/md';
-import { UserContext } from '../context/userContext';
+import { UserContext } from '../context/UserContext';
 import { BsStars } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 
