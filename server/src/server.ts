@@ -14,7 +14,10 @@ import view from './routes/viewMovie.js'
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:5173'],
+    credentials: true
+}));
 app.use(cookieParser());
 mongoose.connect(env.DB_URL).then(() => console.log('Connected to DATABASE'));
 

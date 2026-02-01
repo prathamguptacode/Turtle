@@ -10,7 +10,7 @@ export async function poster(req: Request, res: Response) {
     if (!movieId) {
         return res.status(400).json({ message: 'invalid input' });
     }
-    const movieDb = await moviePoster.find({ about: movieId });
+    const movieDb = await moviePoster.find({ about: movieId }).limit(15);
     return res.json({ movieDb });
 }
 

@@ -81,7 +81,6 @@ Never feel restrictive
             .describe('is this a valid question according to the rules'),
         funFact: z
             .string()
-            .optional()
             .describe('only give fun fact when it is not a valid question'),
     }),
 });
