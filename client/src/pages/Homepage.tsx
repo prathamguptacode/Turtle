@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { use, useContext, useEffect, useState } from 'react';
 import { IoSearchSharp } from 'react-icons/io5';
 import { FiUpload } from 'react-icons/fi';
 import './Homepage.css';
 import { IoIosInformationCircleOutline } from 'react-icons/io';
 import { FaPlay } from 'react-icons/fa';
 import { GoDotFill } from 'react-icons/go';
-import Card from '../components/card';
+import Card from '../components/Card';
 import api from '../api/axios';
 import { toast, Toaster } from 'sonner';
+import { MdLogin } from 'react-icons/md';
+import { UserContext } from '../context/userContext';
+import { BsStars } from 'react-icons/bs';
 
 function Homepage() {
     const [thriller, setThriller] = useState([]);
@@ -17,6 +20,10 @@ function Homepage() {
     const [drama, setDrama] = useState([]);
     const [horror, setHorror] = useState([]);
     const [fiction, setFiction] = useState([]);
+
+    const context = useContext(UserContext);
+    const user = context?.user;
+    console.log(user)
 
     useEffect(() => {
         (async () => {
@@ -146,15 +153,29 @@ function Homepage() {
                 <div className="searchBox">
                     <IoSearchSharp size={24} />
                 </div>
-                <div className="uploadBox">
-                    <button className="uploadBtn">
-                        <FiUpload />
-                        Upload
-                    </button>
-                </div>
-                {/* <div className="loginBox">
-                    <button className="loginBtn">Upload</button>
-                </div> */}
+                {!user ? (
+                    <div className="Box">
+                        <button className="uploadBtn">
+                            Login
+                            <MdLogin size={20} />
+                        </button>
+                    </div>
+                ) : (
+                    <>
+                        <div className="uploadBox">
+                            <button className="uploadBtn">
+                                <FiUpload />
+                                Upload
+                            </button>
+                        </div>
+                        <div className="lBox">
+                            <button className="uploadBtn">
+                                Turtle AI
+                                <BsStars size={14} />
+                            </button>
+                        </div>
+                    </>
+                )}
             </div>
 
             <div className="heroMovie">
