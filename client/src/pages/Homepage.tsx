@@ -37,6 +37,24 @@ function Homepage() {
     useEffect(() => {
         (async () => {
             try {
+                const res = api.get('check');
+                toast.promise(res,{
+                    loading: "Connected to the server",
+                    success: "Successfully connected to server",
+                    error: "Something went wrong",
+                    position: 'top-center'
+                })
+                await res
+                if (setUser) {
+                    setUser(1);
+                }
+            } catch {
+                console.log('login');
+            }
+        })();
+
+        (async () => {
+            try {
                 const res = await api.post('bytag', {
                     tag: 'Thriller',
                 });
@@ -124,16 +142,6 @@ function Homepage() {
                 toast.error('Something went wrong', {
                     position: 'top-center',
                 });
-            }
-        })();
-        (async () => {
-            try {
-                await api.get('check');
-                if (setUser) {
-                    setUser(1);
-                }
-            } catch {
-                console.log('login')
             }
         })();
     }, []);
@@ -353,9 +361,9 @@ function Homepage() {
                     <div className="cardTitle" id="Recommendation">
                         Top 10 for You
                     </div>
-                </div> */}
+                </div>
 
-                {/* <div className="cardRow">
+                <div className="cardRow">
                     <div className="cardTitle">You may like</div>
                 </div> */}
 
