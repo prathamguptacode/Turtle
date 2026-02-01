@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
     Mail,
     ArrowRight,
@@ -9,6 +9,8 @@ import {
     User,
 } from 'lucide-react';
 import api from '../api/axios';
+import { UserContext } from '../context/userContext';
+import { useNavigate } from 'react-router-dom';
 
 type AuthView = 'login' | 'signup' | 'verify-signup';
 
@@ -18,7 +20,12 @@ interface ValidationError {
 }
 
 const AuthPage = () => {
+    const context = useContext(UserContext);
+    const setUser = context?.setUser;
+
     const [view, setView] = useState<AuthView>('login');
+
+    const navigate=useNavigate();
 
     // Login form state
     const [loginEmail, setLoginEmail] = useState('');
@@ -59,14 +66,14 @@ const AuthPage = () => {
                 password: loginPassword,
             });
 
-            // Store token (adjust based on your backend response)
-            if (response.data.token) {
-                localStorage.setItem('authToken', response.data.token);
-            }
 
             // Redirect to home page or dashboard
+            if (setUser) {
+                setUser(1);
+            }
+
             console.log('Login successful:', response.data);
-            window.location.href = '/';
+            navigate('/')
         } catch (error: any) {
             setIsLoading(false);
 
@@ -126,8 +133,8 @@ const AuthPage = () => {
         const otpCode = otp.join('');
 
         try {
-            console.log(token)
-            console.log(otpCode)
+            console.log(token);
+            console.log(otpCode);
             const response = await api.post(
                 `/verify`,
                 {
@@ -146,10 +153,13 @@ const AuthPage = () => {
             }
 
             // Redirect to home page
+            if (setUser) {
+                setUser(1);
+            }
             console.log('Verification successful:', response.data);
-            window.location.href = '/';
+            navigate('/')
         } catch (error) {
-            console.log(error)
+            console.log(error);
             setIsLoading(false);
 
             if (error.response?.data?.message) {

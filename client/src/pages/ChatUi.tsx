@@ -4,13 +4,14 @@ import {
     Sparkles,
     User,
     Bot,
-    Menu,
     Plus,
     Trash2,
     MessageSquare,
 } from 'lucide-react';
 import api from '../api/axios';
 import ReactMarkdown from 'react-markdown';
+import { AiFillHome } from "react-icons/ai";
+import { useNavigate } from 'react-router-dom';
 
 interface Message {
     id: string;
@@ -47,6 +48,12 @@ const ChatUi = () => {
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
+
+    const navigate = useNavigate();
+
+    function handleHome(){
+        navigate('/')
+    }
 
     useEffect(() => {
         scrollToBottom();
@@ -443,29 +450,6 @@ const ChatUi = () => {
                         gap: '16px',
                     }}
                 >
-                    <button
-                        onClick={() => setSidebarOpen(!sidebarOpen)}
-                        style={{
-                            background: 'none',
-                            border: 'none',
-                            color: '#b3b3b3',
-                            cursor: 'pointer',
-                            padding: '8px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            borderRadius: '6px',
-                            transition: 'background 0.2s ease',
-                        }}
-                        onMouseEnter={(e) =>
-                            (e.currentTarget.style.background =
-                                'rgba(255,255,255,0.05)')
-                        }
-                        onMouseLeave={(e) =>
-                            (e.currentTarget.style.background = 'none')
-                        }
-                    >
-                        <Menu size={20} />
-                    </button>
                     <div
                         style={{
                             display: 'flex',
@@ -498,6 +482,30 @@ const ChatUi = () => {
                             Turtle AI
                         </h1>
                     </div>
+                    <button
+                        onClick={handleHome}
+                        style={{
+                            background: 'none',
+                            border: 'none',
+                            color: '#c7c6c6',
+                            cursor: 'pointer',
+                            padding: '8px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            borderRadius: '6px',
+                            transition: 'background 0.2s ease',
+                            marginLeft: 'auto'
+                        }}
+                        onMouseEnter={(e) =>
+                            (e.currentTarget.style.background =
+                                'rgba(255,255,255,0.05)')
+                        }
+                        onMouseLeave={(e) =>
+                            (e.currentTarget.style.background = 'none')
+                        }
+                    >
+                         <AiFillHome size={24} />
+                    </button>
                 </div>
 
                 {/* Messages */}

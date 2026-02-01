@@ -1,4 +1,4 @@
-import React, { use, useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { IoSearchSharp } from 'react-icons/io5';
 import { FiUpload } from 'react-icons/fi';
 import './Homepage.css';
@@ -11,6 +11,7 @@ import { toast, Toaster } from 'sonner';
 import { MdLogin } from 'react-icons/md';
 import { UserContext } from '../context/userContext';
 import { BsStars } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 
 function Homepage() {
     const [thriller, setThriller] = useState([]);
@@ -21,9 +22,18 @@ function Homepage() {
     const [horror, setHorror] = useState([]);
     const [fiction, setFiction] = useState([]);
 
+    
+
+    const navigate=useNavigate();
+    function handleLogin(){
+        navigate('/auth')
+    }
+    function handleAi(){
+        navigate('/chat')
+    }
+
     const context = useContext(UserContext);
     const user = context?.user;
-    console.log(user)
 
     useEffect(() => {
         (async () => {
@@ -155,7 +165,7 @@ function Homepage() {
                 </div>
                 {!user ? (
                     <div className="Box">
-                        <button className="uploadBtn">
+                        <button className="uploadBtn" onClick={handleLogin}>
                             Login
                             <MdLogin size={20} />
                         </button>
@@ -169,7 +179,7 @@ function Homepage() {
                             </button>
                         </div>
                         <div className="lBox">
-                            <button className="uploadBtn">
+                            <button className="uploadBtn" onClick={handleAi}>
                                 Turtle AI
                                 <BsStars size={14} />
                             </button>
