@@ -146,7 +146,6 @@ function Homepage() {
                 <div className="searchBox">
                     <IoSearchSharp size={24} />
                 </div>
-                <div className="user">Pratham</div>
                 <div className="uploadBox">
                     <button className="uploadBtn">
                         <FiUpload />
